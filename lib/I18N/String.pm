@@ -1,6 +1,6 @@
 package I18N::String;
 {
-  $I18N::String::VERSION = '0.01';
+  $I18N::String::VERSION = '0.02';
 }
 
 use strict;
@@ -25,7 +25,16 @@ sub new {
 #===================================
 sub _stringify {
 #===================================
+    no warnings;
+    local $^W = 0;
     $Localize->( ${ $_[0] } );
+}
+
+#===================================
+sub loc {
+#===================================
+    my $self = shift;
+    $Localize->( ${$self}, @_ );
 }
 
 #===================================
@@ -67,7 +76,7 @@ I18N::String - Delay I18N translation until a variable is stringified
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -110,6 +119,16 @@ does this for you.
 
 You need to set this once, and it is global.  This is the function that will
 be called when your variable is stringified, to return the localized version.
+
+=head2 loc()
+
+You can also store strings that require arguments, eg:
+
+    $str = _('I found [quant,_1,file,files]');
+
+And stringify them via:
+
+    $str->loc(@args);
 
 =head1 SUPPORT
 

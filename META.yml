@@ -20,4 +20,4 @@ requires:
 resources:
   bugtracker: https://github.com/clintongormley/I18N-String/issues
   repository: git://github.com/clintongormley/I18N-String.git
-version: 0.01
+version: 0.02
