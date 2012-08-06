@@ -2,7 +2,7 @@ NAME
     I18N::String - Delay I18N translation until a variable is stringified
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
         use I18N::String qw('_');
